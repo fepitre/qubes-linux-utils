@@ -94,14 +94,19 @@ void wait_for_result(void)
             case EINVAL:
                 call_error_handler("File copy: Corrupted data from packer%s%s", last_filename_prefix, last_filename);
                 break;
-            case EDQUOT:
+            //case EDQUOT:
+                //if (ignore_quota_error) {
+                    ///* skip also CRC check as sender and receiver might be
+                     //* desynchronized in this case */
+                    //return;
+                //}
+                ///* fall though */
+            default:
                 if (ignore_quota_error) {
                     /* skip also CRC check as sender and receiver might be
                      * desynchronized in this case */
                     return;
                 }
-		/* fallthrough */
-            default:
                 call_error_handler("File copy: %s%s%s",
                         strerror(hdr.error_code), last_filename_prefix, last_filename);
         }
