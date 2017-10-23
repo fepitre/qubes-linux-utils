@@ -37,7 +37,9 @@ URL:		http://www.qubes-os.org
 
 Requires:	dracut
 Requires:	dkms
+%if 0%{?fedora} && ! 0%{?rhel}
 Requires:	busybox
+%endif
 
 %define _builddir %(pwd)
 
