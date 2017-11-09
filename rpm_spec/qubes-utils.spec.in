@@ -29,6 +29,9 @@ BuildRequires:  python3-setuptools
 %endif
 BuildRequires:  python2-rpm-macros
 BuildRequires:  python3-rpm-macros
+BuildRequires:  python3-setuptools
+# for systemd-related rpm macros...
+BuildRequires:  systemd
 # for meminfo-writer
 BuildRequires:  xen-devel
 
